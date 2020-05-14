@@ -15,14 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', "Home@index");
 
-Route::get('contact', function () {
-    return view('contact');
-});
-
 Route::get('about', function () {
     return view('about');
 });
 
 Route::get('phonebook', "Owners@index");
 
-Route::get('phonebook/{owner}', "Owners@show");
+Route::get('phonebook/success', "Owners@success");
+
+//Routs for creating an Owner
+Route::get('phonebook/create', "Owners@create");
+Route::post('phonebook/create', "Owners@createOwner");
+
+//Routs for editing an Owner
+Route::get('phonebook/edit/{owner}', "Owners@edit");
+Route::post('phonebook/edit/{owner}', "Owners@editOwner");
+
+Route::get("phonebook/{owner}", "Owners@show");

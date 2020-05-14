@@ -21,7 +21,7 @@
     </main>
     
 	<footer>
-        @include("Parts/footer")
+        @include("parts/footer")
 	</footer>
 </body>
 </html>

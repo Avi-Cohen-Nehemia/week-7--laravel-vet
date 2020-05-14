@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\OwnerRequest;
 use App\Owner;
 
 class Owners extends Controller
@@ -23,5 +23,45 @@ class Owners extends Controller
     public function show(Owner $owner)
     {
         return view("owner", ["owner" => $owner]);
+    }
+
+    public function create()
+    {
+        return view("form");
+    }
+
+    public function createOwner(OwnerRequest $request)
+    {
+        // get all of the submitted data
+        $data = $request->all();
+
+        // create a new article, passing in the submitted data
+        $owner = Owner::create($data);
+
+        // redirect the browser to the new article
+        return redirect("/phonebook/success");
+    }
+
+
+    //Methods to edit an Owner:
+    public function edit(Owner $owner)
+    {
+        return view("form", ["owner" => $owner]);
+    }
+
+    public function editOwner(Owner $owner, OwnerRequest $request)
+    {
+        //storing the information populated within the form inputs into the $data variable.
+        $data = $request->all();
+        
+        //fill will overwrite the owner variable with the $data variable and then we save it
+        $owner->fill($data)->save();
+
+        return redirect("/phonebook/success");
+    }
+
+    public function success()
+    {
+        return view("success");
     }
 }

@@ -14,8 +14,6 @@
                 <div id="content">
                     <h1>Animates</h1>
                     <h3>The amazing vet clinic</h3>
-                    <hr>
-                    <button class="btn btn-default btn-lg" id="get-started">Get Started!</button>
                 </div>
             </div>
         </div>

@@ -146,6 +146,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "first_name" => "First Name",
+        "last_name" => "Last Name",
+        "address_1" => "Adrress",
+        "address_2" => "Address 2",
+        "town" => "City",
+        "postcode" => "Postcode",
+        "telephone" => "Phone Number"
+    ],
 
 ];

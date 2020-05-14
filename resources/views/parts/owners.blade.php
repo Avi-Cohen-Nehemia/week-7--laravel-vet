@@ -7,6 +7,7 @@
                     <p class="card-text">{{ $owner->fullAddress() }}</p>
                     <a href="#" class="card-link">Call</a>
                     <a href="#" class="card-link">Email</a>
+                    <a href="../phonebook/edit/{{ $owner->id }}" class="card-link">Edit</a>
                 </div>
             </div>
     @endforeach
