@@ -27,6 +27,17 @@ class Owners extends Controller
         return view("owner", ["owner" => $owner]);
     }
 
+    public function search(Request $request)
+    {
+        $searchedName = $request->query("search");
+
+        $owners = Owner::where('first_name', 'like', $searchedName)
+                        ->orWhere('last_name', 'like', $searchedName)
+                        ->get();
+
+        return view("search", ["owners" => $owners]);
+    }
+
     public function create()
     {
         return view("form");
@@ -44,9 +55,9 @@ class Owners extends Controller
         return redirect("/phonebook/success");
     }
 
-    public function add()
+    public function add(Owner $owner)
     {
-        return view("addPet");
+        return view("addPet", ["owner" => $owner]);
     }
 
     public function addPet(PetRequest $request)

@@ -45,7 +45,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="inputOwnerId">Owner ID</label>
-                <input name="owner_id" type="text" class="form-control @error('owner_id') is-invalid @enderror" id="inputOwnerId" value="{{ $owner->id ?? '' }}">
+                <input name="owner_id" type="text" class="form-control @error('owner_id') is-invalid @enderror" id="inputOwnerId" value="{{ $owner->id ?? '' }}" disabled>
                 @error("owner_id")
                     <p class="invalid-feedback">{{ $message }}</p>
                 @enderror

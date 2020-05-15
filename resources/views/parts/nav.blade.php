@@ -15,13 +15,14 @@
             </li>
         </ul>
     </div>
-    <form class="col-md-3">
+    <form method="GET" class="col-md-3" action="/phonebook/search">
+    @csrf
         <div class="card-body row no-gutters align-items-center">
             <div class="col-auto">
                 <i class="fas fa-search h4 text-body"></i>
             </div>
             <div class="col">
-                <input class="form-control form-control-md form-control-borderless" type="search" placeholder="Search Owners">
+                <input class="form-control form-control-md form-control-borderless" name="search" type="search" placeholder="Search Owners">
             </div>
             <div class="col-auto">
                 <button class="btn btn-md btn-success" type="submit">Search</button>
