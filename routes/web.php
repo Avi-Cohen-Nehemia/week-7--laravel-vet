@@ -32,3 +32,6 @@ Route::get('phonebook/edit/{owner}', "Owners@edit");
 Route::post('phonebook/edit/{owner}', "Owners@editOwner");
 
 Route::get("phonebook/{owner}", "Owners@show");
+
+Route::get("phonebook/{owner}/addPet", "Owners@add");
+Route::post("phonebook/{owner}/addPet", "Owners@addPet");

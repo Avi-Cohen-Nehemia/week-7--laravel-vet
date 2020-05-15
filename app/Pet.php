@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pet extends Model
 {
+    protected $fillable = ["pet_name", "animal_type", "dob", "weight", "height", "owner_id", "biteyness"];
+
     public function dangerous() : bool
     {
         return $this->biteyness >= 3;

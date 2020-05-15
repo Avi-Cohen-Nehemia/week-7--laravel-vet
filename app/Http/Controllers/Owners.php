@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\OwnerRequest;
 use App\Owner;
+use App\Http\Requests\PetRequest;
+use App\Pet;
 
 class Owners extends Controller
 {
@@ -38,10 +40,23 @@ class Owners extends Controller
         // create a new article, passing in the submitted data
         $owner = Owner::create($data);
 
-        // redirect the browser to the new article
+        // redirect the browser to the new owner
         return redirect("/phonebook/success");
     }
 
+    public function add()
+    {
+        return view("addPet");
+    }
+
+    public function addPet(PetRequest $request)
+    {
+        $data = $request->all();
+
+        $pet = Pet::create($data);
+
+        return redirect("/phonebook/success");
+    }
 
     //Methods to edit an Owner:
     public function edit(Owner $owner)
