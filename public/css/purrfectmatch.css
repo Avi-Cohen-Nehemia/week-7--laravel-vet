@@ -3,3 +3,8 @@ body {
 	background-size: cover;
 	background-position: center;
 }
+
+#content {
+	color: white;
+	text-align: center;
+}

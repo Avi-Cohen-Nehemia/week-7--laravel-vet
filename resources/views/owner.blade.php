@@ -9,6 +9,13 @@
             <p class="card-text">{{ $owner->fullAddress() }}</p>
             <a href="#" class="card-link">Call</a>
             <a href="#" class="card-link">Email</a>
+            <a href="../phonebook/edit/{{ $owner->id }}" class="card-link">Edit</a>
+            <ul>
+                @foreach($owner->pets as $pet)
+                    <li>{{ $this->pet_name . " (" . $this->animal_type . ")" }}</li>
+                @endforeach
+            </ul>
+            <a href="#" class="card-link">Add a pet</a>
         </div>
     </div> 
       

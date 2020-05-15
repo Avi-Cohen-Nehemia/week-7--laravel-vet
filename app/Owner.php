@@ -28,6 +28,12 @@ class Owner extends Model
 
         return $formatted;
     }
+
+    public function pets()
+    {
+        // use hasMany relationship method
+        return $this->hasMany(Pet::class);
+    }
 }
 
 /*
