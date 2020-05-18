@@ -14,7 +14,7 @@
             </ul>
             <a href="#" class="card-link">Call</a>
             <a href="#" class="card-link">Email</a>
-            <a href="../phonebook/edit/{{ $owner->id }}" class="card-link">Edit</a>
+            <a href="../phonebook/{{ $owner->id }}/edit" class="card-link">Edit</a>
             <a href="http://192.168.10.10/phonebook/{{ $owner->id }}/addPet" class="card-link">Add a pet</a>
         </div>
     </div> 

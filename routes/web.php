@@ -28,9 +28,10 @@ Route::get('phonebook/create', "Owners@create");
 Route::post('phonebook/create', "Owners@createOwner");
 
 //Routs for editing an Owner
-Route::get('phonebook/edit/{owner}', "Owners@edit");
-Route::post('phonebook/edit/{owner}', "Owners@editOwner");
+Route::get('phonebook/{owner}/edit', "Owners@edit");
+Route::post('phonebook/{owner}/edit', "Owners@editOwner");
 
+//find a specific owner
 Route::get("phonebook/search", "Owners@search");
 Route::get("phonebook/{owner}", "Owners@show");
 

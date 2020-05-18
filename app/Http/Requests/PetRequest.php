@@ -20,7 +20,7 @@ class PetRequest extends FormRequest
             "weight" => ["required", "string", "max:10"],
             "height" => ["required", "string", "max:6"],
             "owner_id" => ["required", "string"],
-            "biteyness" => ["required", "string", "max:1"],
+            "biteyness" => ["required", "integer", "max:1"],
         ];
     }
 }

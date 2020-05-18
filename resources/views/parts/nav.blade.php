@@ -1,8 +1,8 @@
-<div class="nav-tabs row justify-content-between">
+<div class="nav-tabs row justify-content-between m-0">
     <div class="col-md-6 d-flex align-items-center">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="http://192.168.10.10">Home</a>
+                <a class="nav-link" href="http://192.168.10.10">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://192.168.10.10/about">About</a>
