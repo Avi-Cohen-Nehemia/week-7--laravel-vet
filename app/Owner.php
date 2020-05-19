@@ -34,9 +34,22 @@ class Owner extends Model
         // use hasMany relationship method
         return $this->hasMany(Pet::class);
     }
+
+    public function validPhoneNumber() : bool
+    {
+        $validNumber = $this->telephone;
+
+        return preg_match('/^0\d{10}$/', $validNumber) === 1;
+    }
+
+    public function numberOfPets() : int
+    {
+        return count($this->pets);
+    }
 }
 
 /*
+// add an owner using "artisan tinker"
 $owner = new Owner();
 $owner->first_name = "Helen";
 $owner->last_name = "Whitby";

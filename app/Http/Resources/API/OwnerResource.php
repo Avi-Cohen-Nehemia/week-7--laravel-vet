@@ -6,12 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class OwnerResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function toArray($request)
     {
         return [
@@ -20,6 +14,6 @@ class OwnerResource extends JsonResource
             "full_address" => $this->fullAddress(),
             "pets" => $this->pets->pluck("pet_name")
         ];
-        //$this regards to the Owner model
+        //"$this" regards to the Owner model
     }
 }

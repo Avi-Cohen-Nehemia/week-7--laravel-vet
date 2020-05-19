@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Owner;
 use App\Http\Requests\API\OwnerRequest;
 use App\Http\Resources\API\OwnerResource;
+use App\Http\Resources\API\PetResource;
 
 class Owners extends Controller
 {
@@ -53,6 +54,12 @@ class Owners extends Controller
 
         /*without OwnerResource filter filter (showing all of its data)
         return $owner; */
+    }
+
+    //show a list of pets of a specific owner with resouece filter
+    public function showPets(Owner $owner)
+    {
+        return PetResource::collection($owner->pets);
     }
 
     // request is passed in because we ask for it with type hinting

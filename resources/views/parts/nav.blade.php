@@ -21,7 +21,7 @@
             <div class="col-auto">
                 <i class="fas fa-search h4 text-body"></i>
             </div>
-            <div class="col">
+            <div class="col pr-1">
                 <input class="form-control form-control-md form-control-borderless" name="search" type="search" placeholder="Search Owners">
             </div>
             <div class="col-auto">

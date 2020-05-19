@@ -37,6 +37,11 @@ Route::delete("/owners/{owner}", [Owners::class, "destroy"]);
 //update an owner
 Route::put("/owners/{owner}", [Owners::class, "update"]);
 
+//show a list of pets of a specific owner
+Route::get("/owners/{owner}/pets", [Owners::class, "showPets"]);
+
+//create a new pet and add it to an existing owner
+//
 
 
 /********************* Pets Routes *************************/
