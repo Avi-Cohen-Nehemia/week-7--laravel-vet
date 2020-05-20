@@ -24,7 +24,7 @@ class OwnerTest extends TestCase
             "random_data" => "Nope!"
         ]);
         
-        // first_name should be set, as it's in $fillable
+        // first_name etc. should be set, as it's in $fillable
         $this->assertSame("First", $owner->first_name);
         $this->assertSame("Last", $owner->last_name);
         $this->assertSame("01112223333", $owner->telephone);
@@ -85,6 +85,7 @@ class OwnerTest extends TestCase
         $this->assertSame("First", $ownerFromDB->first_name);
     }
 
+    //helper function for testNumberOfPets()
     public function addOwnerAndPets($number)
     {
         $owner = Owner::create();
@@ -95,7 +96,7 @@ class OwnerTest extends TestCase
                 "animal_type" => "animal",
                 "dob" => "2010-10-10",
                 "weight" => 2.5,
-                "height" => 0.03,
+                "height" => 0.10,
                 "owner_id" => $owner->id,
                 "biteyness" => 2,
             ]);

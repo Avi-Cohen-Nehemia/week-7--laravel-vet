@@ -31,7 +31,7 @@ class Owner extends Model
 
     public function pets()
     {
-        // use hasMany relationship method
+        // use hasMany method to set a relationship between Owner and Pet
         return $this->hasMany(Pet::class);
     }
 
@@ -49,7 +49,7 @@ class Owner extends Model
 }
 
 /*
-// add an owner using "artisan tinker"
+// add an owner to the database using "artisan tinker"
 $owner = new Owner();
 $owner->first_name = "Helen";
 $owner->last_name = "Whitby";
