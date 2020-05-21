@@ -18,9 +18,9 @@ class Pets extends Controller
     //create a new pet
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->only(["pet_name", "animal_type", "dob", "weight", "height", "owner_id", "biteyness"]);
 
-        $pet = Pet::create($data);
+        $pet = Pet::create($data)->setTreatments($request->get("treatments"));
         
         return new PetResource($pet);
     }
@@ -34,9 +34,12 @@ class Pets extends Controller
     //update a pet's info
     public function update(Request $request, Pet $pet)
     {
-        $data = $request->all();
+        $data = $request->only(["pet_name", "animal_type", "dob", "weight", "height", "owner_id", "biteyness"]);
 
         $pet->fill($data)->save();
+
+        // use the new method - can't chain as save returns a bool
+        $pet->setTreatments($request->get("treatments"));
 
         return new PetResource($pet);
     }

@@ -19,8 +19,12 @@ class PetRequest extends FormRequest
             "dob" => ["required", "string", "max:12"],
             "weight" => ["required", "string", "max:10"],
             "height" => ["required", "string", "max:6"],
-            "owner_id" => ["required", "string"],
+            "owner_id" => ["required", "integer"],
             "biteyness" => ["required", "integer", "max:1"],
+            // check tags is an array
+            "treatments" => ["required", "array"],
+            // check members of treatments are strings
+            "treatments.*" => ["string", "max:50"],
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Treatment;
 
 class Pet extends Model
 {
@@ -27,6 +28,30 @@ class Pet extends Model
     {
         // a pet belongs to an owner
         return $this->belongsTo(Owner::class);
+    }
+
+    // using the belongsToMany() method
+    // as it's a many-to-many relationship
+    public function treatments()
+    {
+        return $this->belongsToMany(Treatment::class);
+    }
+
+    // just accept an array of strings
+    // we don't want to pass request in as there's no
+    // reason models should know about about the request
+    public function setTreatments(array $strings) : Pet
+    {
+        // get back a collection of Treatment objects
+        $treatments = Treatment::fromStrings($strings);
+
+        // sync the treatments: needs an array of Treatment ids
+        // we're on a pet instance, so use $this
+        // pass in collection of IDs
+        $this->treatments()->sync($treatments->pluck("id"));
+
+        // return $this in case we want to chain
+        return $this;
     }
 }
 

@@ -22,6 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /******************** Owners Routes ************************/
 
+// Route::group([
+//     "prefix" => "owners",
+// ])
+
 //show all owners
 Route::get("/owners", [Owners::class, "index"]);
 

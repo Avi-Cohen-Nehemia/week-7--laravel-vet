@@ -59,41 +59,15 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 ! ) # ( £ * % & > < @ a b c d e f g h i j k l m n o
 */
 
+// private $alphabet
 // private $dictionary;
 
 // public function __construct(string $string)
 // {
-//     $dictionary = [
-//         "a" => "",
-//         "b" => "",
-//         "c" => "",
-//         "d" => "",
-//         "e" => "",
-//         "f" => "",
-//         "g" => "",
-//         "h" => "",
-//         "i" => "",
-//         "j" => "",
-//         "k" => "",
-//         "l" => "",
-//         "m" => "",
-//         "n" => "",
-//         "o" => "",
-//         "p" => "",
-//         "q" => "",
-//         "r" => "",
-//         "s" => "",
-//         "t" => "",
-//         "u" => "",
-//         "v" => "",
-//         "w" => "",
-//         "x" => "",
-//         "y" => "",
-//         "z" => "",
-//         " " => " "
-//     ];
+//     $this->alphabet = range("a", "z");
+//     $this->string = str_replace(" ", "", $string);
 
-//     $myKeysList = preg_split('/[a-zA-Z!)#(£*&%><@]/', $string)
+//     $myKeysList = preg_split('/[a-zA-Z!)#(£*&%><@]/', $string);
 
 //     foreach ($myKeysList as $key => $value) {
 //         $dictionary[] = $value;
