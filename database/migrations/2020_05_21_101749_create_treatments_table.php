@@ -14,7 +14,7 @@ class CreateTreatmentsTable extends Migration
         });
 
         Schema::create('pet_treatment', function (Blueprint $table) {
-            //still needs a regular id
+            //still needs its own id
             $table->id();
             
             // create the pet id column and foreign key

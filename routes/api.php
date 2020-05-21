@@ -22,31 +22,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /******************** Owners Routes ************************/
 
-// Route::group([
-//     "prefix" => "owners",
-// ])
+Route::group(["prefix" => "owners"],
+    
+    function() {
+        //show all owners
+        Route::get("", [Owners::class, "index"]);
 
-//show all owners
-Route::get("/owners", [Owners::class, "index"]);
+        //show a spesific owner
+        Route::get("{owner}", [Owners::class, "show"]);
 
-//show a spesific owner
-Route::get("/owners/{owner}", [Owners::class, "show"]);
+        //create a new owner
+        Route::post("create", [Owners::class, "store"]);
 
-//create a new owner
-Route::post("/owners/create", [Owners::class, "store"]);
+        //delete an owner
+        Route::delete("{owner}", [Owners::class, "destroy"]);
 
-//delete an owner
-Route::delete("/owners/{owner}", [Owners::class, "destroy"]);
+        //update an owner
+        Route::put("{owner}", [Owners::class, "update"]);
 
-//update an owner
-Route::put("/owners/{owner}", [Owners::class, "update"]);
+        //show a list of pets of a specific owner
+        Route::get("{owner}/pets", [Owners::class, "showPets"]);
 
-//show a list of pets of a specific owner
-Route::get("/owners/{owner}/pets", [Owners::class, "showPets"]);
-
-//create a new pet and add it to an existing owner
-//
-
+        //create a new pet and add it to an existing owner
+        //
+    }
+);
 
 /********************* Pets Routes *************************/
 
