@@ -47,7 +47,7 @@ Route::group([
         Route::get("{owner}/pets", [Owners::class, "showPets"]);
 
         //create a new pet and add it to an existing owner
-        //
+        // Route::post("{owner}/pets", [Owners::class, "addPet"]);
     }
 );
 
