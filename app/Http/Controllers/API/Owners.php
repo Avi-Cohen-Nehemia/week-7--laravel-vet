@@ -8,6 +8,7 @@ use App\Owner;
 use App\Http\Requests\API\OwnerRequest;
 use App\Http\Resources\API\OwnerResource;
 use App\Http\Resources\API\PetResource;
+use App\Http\Requests\OwnerStoreRequest;
 
 class Owners extends Controller
 {
@@ -18,7 +19,7 @@ class Owners extends Controller
     }
 
     //create a new owner and return filtered result with OwnerResource
-    public function store(OwnerRequest $request)
+    public function store(OwnerStoreRequest $request)
     {
         // get all the request data
         // returns an array of all the data the user sent
