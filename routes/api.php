@@ -22,10 +22,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /******************** Owners Routes ************************/
 
-Route::group(["prefix" => "owners"],
-    
+Route::group([
+    "prefix" => "owners",
+    "middleware" => ["auth:api"], //group authentication
+],
     function() {
         //show all owners
+        // too ad authentication to a specific route: ->middleware('auth:api') at the end of it
         Route::get("", [Owners::class, "index"]);
 
         //show a spesific owner
