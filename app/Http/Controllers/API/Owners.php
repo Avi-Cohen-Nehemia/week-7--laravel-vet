@@ -99,4 +99,12 @@ class Owners extends Controller
 
         return new OwnerResource($owner);
     }
+
+    // delete a pet from the DB of an existing owner
+    public function removePet(Owner $owner, Pet $pet)
+    {
+        $pet->delete();
+
+        return new OwnerResource($owner);
+    }
 }

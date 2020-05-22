@@ -49,6 +49,9 @@ Route::group([
 
         //create a new pet and add it to an existing owner
         Route::post("{owner}/pets/create", [Owners::class, "addPet"]);
+
+        //delete a pet that belongs to an existing owner
+        Route::delete("{owner}/pets/{pet}", [Owners::class, "removePet"]);
     }
 );
 
