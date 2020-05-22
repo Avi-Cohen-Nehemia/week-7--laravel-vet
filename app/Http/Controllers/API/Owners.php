@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Owner;
+use App\Pet;
 use App\Http\Requests\API\OwnerRequest;
 use App\Http\Resources\API\OwnerResource;
 use App\Http\Resources\API\PetResource;
@@ -85,5 +86,17 @@ class Owners extends Controller
 
         // use a 204 code as there is no content in the response
         return response(null, 204);
+    }
+
+    //create a new pet for existing owner
+    public function addPet(Request $request, Owner $owner)
+    {
+        $data = $request->only(["pet_name", "animal_type", "dob", "weight", "height", "biteyness"]);
+        
+        $pet = $owner->pets()->create($data);
+
+        $pet->setTreatments($request->get("treatments"));
+
+        return new OwnerResource($owner);
     }
 }

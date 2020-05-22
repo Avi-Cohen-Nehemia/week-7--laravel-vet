@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Owners;
-use App\Http\Controllers\API\Pets;
+// use App\Http\Controllers\API\Pets;
+use App\Http\Controllers\API\Owners\Pets;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ Route::group([
 ],
     function() {
         //show all owners
-        // too ad authentication to a specific route: ->middleware('auth:api') at the end of it
+        // to add authentication to a specific route: ->middleware('auth:api') at the end of it
         Route::get("", [Owners::class, "index"]);
 
         //show a spesific owner
@@ -44,26 +45,23 @@ Route::group([
         Route::put("{owner}", [Owners::class, "update"]);
 
         //show a list of pets of a specific owner
-        Route::get("{owner}/pets", [Owners::class, "showPets"]);
+        Route::get("{owner}/pets", [Pets::class, "showOwnersPets"]);
 
         //create a new pet and add it to an existing owner
-        // Route::post("{owner}/pets", [Owners::class, "addPet"]);
+        Route::post("{owner}/pets/create", [Owners::class, "addPet"]);
     }
 );
 
 /********************* Pets Routes *************************/
 
 //show all pets
-Route::get("/pets", [Pets::class, "index"]);
+Route::get("pets", [Pets::class, "index"]);
 
-//show a spesific pet
-Route::get("/pets/{pet}", [Pets::class, "show"]);
-
-//create a new pet
-Route::post("/pets/create", [Pets::class, "store"]);
+//show a specific pet
+Route::get("pets/{pet}", [Pets::class, "show"]);
 
 //delete a pet
-Route::delete("/pets/{pet}", [Pets::class, "destroy"]);
+Route::delete("pets/{pet}", [Pets::class, "destroy"]);
 
 //update a pet
-Route::put("/pets/{pet}", [Pets::class, "update"]);
+Route::put("pets/{pet}", [Pets::class, "update"]);
